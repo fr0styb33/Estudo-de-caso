@@ -1,4 +1,4 @@
-package controle;
+package modelo;
 
 public class produto {
 	private String nome;
