@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controle.CardapioDAO;
-import modelo.Pessoa;
+import modelo.Produto;
+import modelo.Salgado;
 
 public class MainMenu {
 
@@ -12,21 +13,15 @@ public class MainMenu {
 
 		Integer opcaoSelecionada = Integer.MAX_VALUE;
 		Scanner leitura = new Scanner(System.in);
-		CardapioDAO bancoPessoa = CardapioDAO.getInstancia();
+		CardapioDAO bancoProduto = CardapioDAO.getInstancia();
 		while (opcaoSelecionada != 0) {
 
-			/**
-			 * Esta é so uma proposta de menu de sistema.
-			 * 
-			 * Voce nao precisa seguir esta ordem, desde que seu sistema respeite a logica
-			 * de incluir, alterar, listar e excluir de alguma forma.
-			 */
 			System.out.println("- MENU EXEMPLO -");
 			System.out.println("0 SAIR");
 			System.out.println("1 CADASTRAR");
 			System.out.println("2 ALTERAR");
 			System.out.println("3 EXCLUIR");
-			System.out.println("4 LISTAR");
+			System.out.println("4 LISTAR SALGADOS");
 			opcaoSelecionada = Integer.valueOf(leitura.nextLine());
 
 			switch (opcaoSelecionada) {
@@ -34,26 +29,30 @@ public class MainMenu {
 				break;
 			}
 			case 1: {
-				Pessoa p = new Pessoa();
+				Salgado salgado = new Salgado();
 				System.out.println("Nome:");
 				String nome = leitura.nextLine();
-				// fazer validacao
-				System.out.println("Cpf:");
-				String cpf = leitura.nextLine();
-				// fazer validacao
-				p.setNome(nome);
+				System.out.println("Tipo:");
+				String tipo = leitura.nextLine();
 
-				/**
-				 * Exemplo de validacao
-				 * 
-				 */
-				if (!cpf.isEmpty()) {
-					p.setCpf(Long.valueOf(cpf));
+				if (!nome.isEmpty()) {
+					salgado.setNome(nome);
 				} else {
 					System.out.println("Erro");
 				}
 
-				bancoPessoa.inserir(p);
+				if (!tipo.isEmpty()) {
+					salgado.setPreco(null);
+				} else {
+					System.out.println("Erro");
+				}
+
+				boolean valida = bancoProduto.inserir(salgado);
+				if (valida == true) {
+					System.out.println("Produto cadastrado com sucesso!");
+				} else {
+					System.out.println("Erro ao cadastrar produto!");
+				}
 
 			}
 			case 2: {
@@ -65,10 +64,16 @@ public class MainMenu {
 				// finalizar codigo
 			}
 			case 4: {
-				ArrayList<Pessoa> lista = bancoPessoa.listarPessoas();
-				for (Pessoa pessoa : lista) {
-					System.out.println("Cpf: " + pessoa.getCpf());
-					System.out.println("Nome: " + pessoa.getNome());
+				ArrayList<Salgado> salgados = bancoProduto.listarSalgados();
+				if (salgados.size() == 0) {
+					System.out.println("Nenhum salgado cadastrado!");
+				} else {
+					for (Produto produto : salgados) {
+						System.out.println("Nome: " + produto.getNome());
+						System.out.println("Preco: " + produto.getPreco());
+
+						// completar
+					}
 				}
 			}
 

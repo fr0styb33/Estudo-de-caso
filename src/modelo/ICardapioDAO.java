@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public interface ICardapioDAO {
 
-	public boolean inserir(Produto p);
+	public boolean inserir(Salgado salgado);
 
-	public boolean alterar(Produto p, long cpf);
+	public boolean alterar(Salgado salgado);
 
-	public boolean excluir(Produto p, long cpf);
+	public boolean excluir(Salgado salgado);
 
-	public ArrayList<Produto> listarPessoas();
+	public ArrayList<Salgado> listarSalgados();
 
 }

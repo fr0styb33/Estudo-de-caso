@@ -3,12 +3,11 @@ package controle;
 import java.util.ArrayList;
 
 import modelo.ICardapioDAO;
-import modelo.Pessoa;
-import modelo.Produto;
+import modelo.Salgado;
 
 public class CardapioDAO implements ICardapioDAO {
 
-	private static ArrayList<Produto> produtos;
+	private static ArrayList<Salgado> salgados;
 	private static CardapioDAO instancia;
 
 	/**
@@ -29,31 +28,28 @@ public class CardapioDAO implements ICardapioDAO {
 
 		if (instancia == null) {
 			instancia = new CardapioDAO();
-			produtos = new ArrayList<>();
-			
-			// adicionar uns produtos aqui
-			
-			produtos.add(null);
+			salgados = new ArrayList<>();
 		}
 
 		return instancia;
 	}
 
 	@Override
-	public boolean inserir(Pessoa p) {
-		if (p != null) {
-			produtos.add(p);
+	public boolean inserir(Salgado salgado) {
+		if (salgado != null) {
+			salgados.add(salgado);
 			return true;
 		}
 		return false;
 	}
 
 	@Override
-	public boolean alterar(Pessoa p, long cpf) {
-		for (Pessoa pessoa : produtos) {
+	public boolean alterar(Salgado salgadoAlterar) {
+		for (Salgado salgado : salgados) {
 
-			if (pessoa.getCpf() == cpf) {
-				pessoa.setNome(p.getNome());
+			if (salgado.getCodProduto() == salgadoAlterar.getCodProduto()) {
+				salgado.setNome(salgado.getNome());
+				// terminar esse metodo
 				return true;
 			}
 		}
@@ -61,10 +57,10 @@ public class CardapioDAO implements ICardapioDAO {
 	}
 
 	@Override
-	public boolean excluir(Pessoa p, long cpf) {
-		for (Pessoa pessoa : produtos) {
-			if (pessoa.getCpf() == cpf) {
-				produtos.remove(pessoa);
+	public boolean excluir(Salgado salgadoExcluir) {
+		for (Salgado salgado : salgados) {
+			if (salgado.getCodProduto() == salgadoExcluir.getCodProduto()) {
+				salgados.remove(salgado);
 				return true;
 			}
 		}
@@ -73,8 +69,8 @@ public class CardapioDAO implements ICardapioDAO {
 	}
 
 	@Override
-	public ArrayList<Pessoa> listarPessoas() {
-		return produtos;
+	public ArrayList<Salgado> listarSalgados() {
+		return salgados;
 	}
 
 }

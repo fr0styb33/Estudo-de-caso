@@ -2,12 +2,9 @@ package modelo;
 
 public abstract class Produto {
 
+	private Long codProduto;
 	private String nome;
-	private String tipo;
-	private String descricao;
 	private Double preco;
-	private Integer quant;
-	private String sabor;
 
 	public String getNome() {
 		return nome;
@@ -15,22 +12,6 @@ public abstract class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public Double getPreco() {
@@ -41,19 +22,12 @@ public abstract class Produto {
 		this.preco = preco;
 	}
 
-	public Integer getQuant() {
-		return quant;
+	public Long getCodProduto() {
+		return codProduto;
 	}
 
-	public void setQuant(Integer quant) {
-		this.quant = quant;
+	public void setCodProduto(Long codProduto) {
+		this.codProduto = codProduto;
 	}
 
-	public String getSabor() {
-		return sabor;
-	}
-
-	public void setSabor(String sabor) {
-		this.sabor = sabor;
-	}
 }
