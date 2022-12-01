@@ -43,6 +43,9 @@ public class CardapioDAO implements ICardapioDAO {
 		return false;
 	}
 
+	/**
+	 * Alterar este
+	 */
 	@Override
 	public boolean alterar(Salgado salgadoAlterar) {
 		for (Salgado salgado : salgados) {

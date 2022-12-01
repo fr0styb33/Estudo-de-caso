@@ -46,6 +46,10 @@ public class MainMenu {
 				} else {
 					System.out.println("Erro");
 				}
+				
+				/**
+				 * Finalizar o cadastro colocando os sets e validando
+				 */
 
 				boolean valida = bancoProduto.inserir(salgado);
 				if (valida == true) {
