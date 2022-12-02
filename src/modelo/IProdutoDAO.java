@@ -8,7 +8,7 @@ public interface IProdutoDAO {
 
 	public boolean alterar(Produto produto);
 
-	public boolean excluir(Produto produto);
+	public boolean excluir(Long codProdutos);
 
 	public ArrayList<Produto> listarProduto();
 

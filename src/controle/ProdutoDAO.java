@@ -47,11 +47,7 @@ public class ProdutoDAO implements IProdutoDAO {
 		return false;
 	}
 
-	@Override
-	public boolean excluir(Produto produto) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 	@Override
 	public ArrayList<Produto> listarProduto() {
@@ -63,6 +59,17 @@ public class ProdutoDAO implements IProdutoDAO {
 		}
 
 		return produtos;
+	}
+
+	@Override
+	public boolean excluir(Long codProdutos) {
+		for(Produto produto : produtos) {
+			if(produto.getCodProduto().equals(codProdutos)){
+				produtos.remove(produto);
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

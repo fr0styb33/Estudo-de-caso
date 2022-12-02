@@ -5,6 +5,7 @@ public abstract class Produto {
 	private Long codProduto;
 	private String nome;
 	private String tipo;
+	
 	public String getTipo() {
 		return tipo;
 	}

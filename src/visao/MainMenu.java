@@ -96,4 +96,22 @@ public class MainMenu {
 			System.out.println("Erro ao cadastrar produto!");
 		}
 	}
+
+	public static void alterarSalgado() {
+		SalgadoDAO bancoSalgado = SalgadoDAO.getInstancia();
+		Scanner leitura = new Scanner(System.in);
+		
+		System.out.println("Informe o salgado que desejas excluir:");
+		Long codSalgado = leitura.nextLine();
+		
+		if(!salgado.isEmpty()) {
+			bancoSalgado.excluir(produto);
+		}else {
+			System.out.println("Não há salgados com esse ");
+		}
+	}
+
+	public static void excluirSalgado() {
+
+	}
 }
