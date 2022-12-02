@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public interface ICardapioDAO {
+public interface ISalgadoDAO {
 
 	public boolean inserir(Salgado salgado);
 

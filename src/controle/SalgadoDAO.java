@@ -2,32 +2,21 @@ package controle;
 
 import java.util.ArrayList;
 
-import modelo.ICardapioDAO;
+import modelo.ISalgadoDAO;
 import modelo.Salgado;
 
-public class CardapioDAO implements ICardapioDAO {
+public class SalgadoDAO implements ISalgadoDAO {
 
 	private static ArrayList<Salgado> salgados;
-	private static CardapioDAO instancia;
+	private static SalgadoDAO instancia;
 
-	/**
-	 * Torna o construtor da classe privado Para impedir que a classe seja
-	 * instanciada
-	 */
-	private CardapioDAO() {
+	private SalgadoDAO() {
 	}
 
-	/**
-	 * Metodo utilizando padrao Singleton impossibilitando que se criem diversos
-	 * objetos em memoria RAM apenas se crie um uma unica vez e se manipule o mesmo
-	 * 
-	 * 
-	 * @return
-	 */
-	public static CardapioDAO getInstancia() {
+	public static SalgadoDAO getInstancia() {
 
 		if (instancia == null) {
-			instancia = new CardapioDAO();
+			instancia = new SalgadoDAO();
 			salgados = new ArrayList<>();
 		}
 
@@ -43,16 +32,15 @@ public class CardapioDAO implements ICardapioDAO {
 		return false;
 	}
 
-	/**
-	 * Alterar este
-	 */
 	@Override
 	public boolean alterar(Salgado salgadoAlterar) {
 		for (Salgado salgado : salgados) {
 
 			if (salgado.getCodProduto() == salgadoAlterar.getCodProduto()) {
 				salgado.setNome(salgado.getNome());
-				// terminar esse metodo
+				salgado.setCalorias(salgado.getCalorias());
+				salgado.setPreco(salgado.getPreco());
+				salgado.setTipo(salgado.getTipo());
 				return true;
 			}
 		}
@@ -73,6 +61,13 @@ public class CardapioDAO implements ICardapioDAO {
 
 	@Override
 	public ArrayList<Salgado> listarSalgados() {
+		for (Salgado salgado : salgados){
+			System.out.println(salgado.getNome());
+			System.out.println(salgado.getTipo());
+			System.out.println(salgado.getCalorias());
+			System.out.println(salgado.getCodProduto());
+			System.out.println(salgado.getPreco());
+		}
 		return salgados;
 	}
 
