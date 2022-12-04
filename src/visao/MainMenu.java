@@ -73,10 +73,15 @@ public class MainMenu {
 		String nome = leitura.nextLine();
 		System.out.println("Tipo:");
 		String tipo = leitura.nextLine();
-		System.out.println("Calorias");
+		System.out.println("Calorias:");
 		String calorias = leitura.nextLine();
-		System.out.println("Preco");
+		System.out.println("Preço:");
 		String preco = leitura.nextLine();
+		System.out.println("Massa:");
+		String massa = leitura.nextLine();
+		System.out.println("Validade:");
+		String validade = leitura.nextLine();
+		
 
 		if (!nome.isEmpty()) {
 			salgado.setNome(nome);
@@ -101,13 +106,13 @@ public class MainMenu {
 		SalgadoDAO bancoSalgado = SalgadoDAO.getInstancia();
 		Scanner leitura = new Scanner(System.in);
 		
-		System.out.println("Informe o salgado que desejas excluir:");
+		System.out.println("Informe o salgado 	que desejas excluir:");
 		Long codSalgado = leitura.nextLine();
 		
 		if(!salgado.isEmpty()) {
 			bancoSalgado.excluir(produto);
 		}else {
-			System.out.println("Não há salgados com esse ");
+			System.out.println("Não há salgados com esse código!");
 		}
 	}
 

@@ -41,6 +41,8 @@ public class SalgadoDAO implements ISalgadoDAO {
 				salgado.setCalorias(salgado.getCalorias());
 				salgado.setPreco(salgado.getPreco());
 				salgado.setTipo(salgado.getTipo());
+				salgado.setMassa(salgado.getMassa());
+				salgado.setValidade(salgado.getValidade());
 				return true;
 			}
 		}
@@ -65,6 +67,8 @@ public class SalgadoDAO implements ISalgadoDAO {
 			System.out.println(salgado.getNome());
 			System.out.println(salgado.getTipo());
 			System.out.println(salgado.getCalorias());
+			System.out.println(salgado.getMassa());
+			System.out.println(salgado.getValidade());
 			System.out.println(salgado.getCodProduto());
 			System.out.println(salgado.getPreco());
 		}
