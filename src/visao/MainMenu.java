@@ -34,8 +34,7 @@ public class MainMenu {
 
 			}
 			case 2: {
-				System.out.println("Digite o codigo da pessoa que deseja alterar:");
-				// finalizar codigo
+				
 			}
 			case 3: {
 				
@@ -43,23 +42,12 @@ public class MainMenu {
 				
 			}
 			case 4: {
-				ArrayList<Salgado> salgados = bancoSalgado.listarSalgados();
-				if (salgados.size() == 0) {
-					System.out.println("Nenhum salgado cadastrado!");
-				} else {
-					for (Produto produto : salgados) {
-						System.out.println("Nome: " + produto.getNome());
-						System.out.println("Preco: " + produto.getPreco());
-
-					}
-				}
+				listarSalgado();
 			}
-
-			}
-
+		
+			
 		}
-
-	}
+		}
 
 	public static void cadastrarSalgado() {
 		Scanner leitura = new Scanner(System.in);
@@ -80,7 +68,6 @@ public class MainMenu {
 		String validade = leitura.nextLine();
 		System.out.println("Código do produto:");
 		String codProduto = leitura.nextLine();
-		
 
 		if (!nome.isEmpty()) {
 			salgado.setNome(nome);
@@ -100,22 +87,38 @@ public class MainMenu {
 			System.out.println("Erro ao cadastrar produto!");
 		}
 	}
-	
-	//Alterar
+
+	public static void alterarSalgado() {
+		
+		System.out.println("Digite o codigo da pessoa que deseja alterar:");
+		// finalizar codigo
+	}
 
 	public static void excluirSalgado() {
 		SalgadoDAO bancoSalgado = SalgadoDAO.getInstancia();
 		Scanner leitura = new Scanner(System.in);
-		
+
 		System.out.println("Informe o salgado 	que desejas exluir:");
 		Long codSalgado = leitura.nextLine();
-		
-		if(!salgado.isEmpty()) {
+
+		if (!salgado.isEmpty()) {
 			bancoSalgado.excluir(produto);
-		}else {
+		} else {
 			System.out.println("Não há salgados com esse código!");
 		}
 	}
 
-	
+	public static void listarSalgado() {
+		ArrayList<Salgado> salgados = bancoSalgado.listarSalgados();
+		if (salgados.size() == 0) {
+			System.out.println("Nenhum salgado cadastrado!");
+		} else {
+			for (Produto produto : salgados) {
+				System.out.println("Nome: " + produto.getNome());
+				System.out.println("Preco: " + produto.getPreco());
+
+			}
+		}
+	}
+	}
 }
