@@ -5,6 +5,7 @@ public abstract class Produto {
 	private Long codProduto;
 	private String nome;
 	private String tipo;
+	private Double preco;
 	
 	public String getTipo() {
 		return tipo;
@@ -13,8 +14,6 @@ public abstract class Produto {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-	private Double preco;
 
 	public String getNome() {
 		return nome;

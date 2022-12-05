@@ -38,12 +38,9 @@ public class MainMenu {
 				// finalizar codigo
 			}
 			case 3: {
-				Salgado salgado = new Salgado();
-
-				System.out.println("Digite o codigo da pessoa que deseja excluir:");
-
-				// finalizar codigo
-				bancoSalgado.excluir(salgado);
+				
+				excluirSalgado();
+				
 			}
 			case 4: {
 				ArrayList<Salgado> salgados = bancoSalgado.listarSalgados();
@@ -81,6 +78,8 @@ public class MainMenu {
 		String massa = leitura.nextLine();
 		System.out.println("Validade:");
 		String validade = leitura.nextLine();
+		System.out.println("Código do produto:");
+		String codProduto = leitura.nextLine();
 		
 
 		if (!nome.isEmpty()) {
@@ -101,12 +100,14 @@ public class MainMenu {
 			System.out.println("Erro ao cadastrar produto!");
 		}
 	}
+	
+	//Alterar
 
-	public static void alterarSalgado() {
+	public static void excluirSalgado() {
 		SalgadoDAO bancoSalgado = SalgadoDAO.getInstancia();
 		Scanner leitura = new Scanner(System.in);
 		
-		System.out.println("Informe o salgado 	que desejas excluir:");
+		System.out.println("Informe o salgado 	que desejas exluir:");
 		Long codSalgado = leitura.nextLine();
 		
 		if(!salgado.isEmpty()) {
@@ -116,7 +117,5 @@ public class MainMenu {
 		}
 	}
 
-	public static void excluirSalgado() {
-
-	}
+	
 }
