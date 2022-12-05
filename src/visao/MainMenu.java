@@ -89,11 +89,20 @@ public class MainMenu {
 	}
 
 	public static void alterarSalgado() {
+		System.out.println("Informe o código do produto que você queira alterar:");
+		SalgadoDAO salgado = SalgadoDAO.getInstancia();
+		Salgado salgado = new Salgado();
+		if(!CodProduto)
+		
+		
+		
+		
 		
 		System.out.println("Digite o codigo da pessoa que deseja alterar:");
 		// finalizar codigo
 	}
 
+	
 	public static void excluirSalgado() {
 		SalgadoDAO bancoSalgado = SalgadoDAO.getInstancia();
 		Scanner leitura = new Scanner(System.in);
