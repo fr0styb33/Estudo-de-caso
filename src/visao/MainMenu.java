@@ -34,7 +34,7 @@ public class MainMenu {
 
 			}
 			case 2: {
-				
+				alterarSalgado();
 			}
 			case 3: {
 				
@@ -88,18 +88,19 @@ public class MainMenu {
 		}
 	}
 
-	public static void alterarSalgado() {
+	public static void alterarSalgado(Long codProduto) {
 		System.out.println("Informe o código do produto que você queira alterar:");
-		SalgadoDAO salgado = SalgadoDAO.getInstancia();
+		SalgadoDAO Salgado = SalgadoDAO.getInstancia();
 		Salgado salgado = new Salgado();
-		if(!CodProduto)
-		
-		
-		
-		
-		
-		System.out.println("Digite o codigo da pessoa que deseja alterar:");
-		// finalizar codigo
+		if(!CodProduto.salgado().isEmpty()) {
+			final boolean alterarProduto = Salgado.alterar(salgado, SalgadoDAO);
+		}
+		if(alterarProduto == true) {
+			System.out.println("Produto alterado com sucesso!!");
+		}
+		else {
+			System.out.println("Erro ao alterar produto!!");
+		}
 	}
 
 	
@@ -107,12 +108,13 @@ public class MainMenu {
 		SalgadoDAO bancoSalgado = SalgadoDAO.getInstancia();
 		Scanner leitura = new Scanner(System.in);
 
-		System.out.println("Informe o salgado 	que desejas exluir:");
+		System.out.println("Informe o salgado que deseja exluir:");
 		Long codSalgado = leitura.nextLine();
 
 		if (!salgado.isEmpty()) {
 			bancoSalgado.excluir(produto);
-		} else {
+		}
+		else {
 			System.out.println("Não há salgados com esse código!");
 		}
 	}
@@ -130,4 +132,5 @@ public class MainMenu {
 		}
 	}
 	}
+
 }
